@@ -1,0 +1,24 @@
+{
+  "name": "@lamsal-de/node-defaults",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:romanlamsal/lamsal-node-defaults.git",
+  "author": "Roman Lamsal <roman@lamsal.de>",
+  "license": "MIT",
+  "bin": {
+    "lamsal-node-defaults": "./index.js"
+  },
+  "scripts": {
+    "postinstall": "node index.js"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-unused-imports": "^1.1.2",
+    "prettier": "^2.4.1"
+  }
+}

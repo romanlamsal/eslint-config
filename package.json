@@ -6,10 +6,7 @@
   "author": "Roman Lamsal <roman@lamsal.de>",
   "license": "MIT",
   "bin": {
-    "lamsal-node-defaults": "./index.js"
-  },
-  "scripts": {
-    "postinstall": "node index.js"
+    "lamsal-node-defaults": "./binary.js"
   },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.28.5",

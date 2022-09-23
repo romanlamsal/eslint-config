@@ -1,14 +1,25 @@
 {
   "extends": [
     "prettier",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:vue/essential",
+    "eslint:recommended",
+    "@vue/typescript"
   ],
   "plugins": [
     "unused-imports",
-    "react",
     "prettier"
   ],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  },
   "overrides": [
+    {
+      "files": ["**/*.tsx"],
+      "plugins": [
+        "react"
+      ]
+    },
     {
       "files": [
         "**/*.{ts,tsx}"
@@ -28,6 +39,7 @@
     }
   ],
   "rules": {
+    "vue/multi-word-component-names": "off",
     "prettier/prettier": [
       "error",
       {
@@ -43,6 +55,5 @@
       "error",
       "all"
     ]
-  },
-  "parser": "@typescript-eslint/parser"
+  }
 }

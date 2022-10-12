@@ -2,7 +2,7 @@
   "name": "@lamsal-de/eslint-config",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:romanlamsal/lamsal-node-defaults.git",
+  "repository": "git@github.com:romanlamsal/eslint-config.git",
   "author": "Roman Lamsal <roman@lamsal.de>",
   "license": "MIT",
   "dependencies": {

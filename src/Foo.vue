@@ -1,9 +1,5 @@
 <template>
-    <div
-        data-maybe="or not?"
-        class="wowthisissuchalong string and i do not know if this is actually possible NOT to lint but hey"
-        id="maybe-this-id-gets-newlined"
-    ></div>
+    <div data-maybe="or not?" class="p-4 pt-8 md:pt-8" id="maybe-this-id-gets-newlined"></div>
 </template>
 
 <script setup lang="ts">

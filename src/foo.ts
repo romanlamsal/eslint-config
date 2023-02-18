@@ -1,1 +1,1 @@
-export const name = ""
+export const name = "" satisfies string

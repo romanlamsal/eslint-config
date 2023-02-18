@@ -7,7 +7,7 @@
     "@vue/typescript"
   ],
   "env": {
-      "node": true,
+      "node": true
   },
   "plugins": [
     "unused-imports",

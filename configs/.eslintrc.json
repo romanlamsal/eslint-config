@@ -6,6 +6,9 @@
     "eslint:recommended",
     "@vue/typescript"
   ],
+  "env": {
+      "node": true,
+  },
   "plugins": [
     "unused-imports",
     "prettier"

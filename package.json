@@ -1,24 +1,41 @@
 {
   "name": "@lamsal-de/eslint-config",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "2.0.0",
+  "exports": {
+    ".": "./configs",
+    "./prettier": "./configs/prettierrc",
+    "./svelte": "./configs/svelte",
+    "./react": "./configs/react"
+  },
   "repository": "git@github.com:romanlamsal/eslint-config.git",
   "author": "Roman Lamsal <roman@lamsal.de>",
   "license": "MIT",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.52.0",
-    "@typescript-eslint/parser": "^5.52.0",
+    "@rushstack/eslint-patch": "^1.3.2",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
     "@vue/eslint-config-typescript": "^11.0.2",
-    "eslint": "^8.22.0",
-    "eslint-config-prettier": "^8.6.0",
+    "eslint": "8.22.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-svelte3": "^4.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "eslint-plugin-vue": "^9.5.1",
-    "prettier": "^2.8.4",
-    "prettier-plugin-tailwindcss": "^0.2.3"
+    "prettier": "^2.8.8",
+    "prettier-plugin-svelte": "^2.10.0",
+    "prettier-plugin-tailwindcss": "^0.2.5"
   },
   "devDependencies": {
-    "typescript": "^4.9.0"
+    "typescript": "^4.9.0",
+    "svelte": "^4.0.5"
+  },
+  "optionalDependencies": {
+    "svelte": "*"
+  },
+  "prettier": "./configs/prettierrc.js",
+  "eslintConfig": {
+    "extends": ["./configs"]
   }
 }

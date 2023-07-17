@@ -36,6 +36,6 @@
   },
   "prettier": "./configs/prettierrc.js",
   "eslintConfig": {
-    "extends": ["./configs"]
+    "extends": ["./configs/svelte"]
   }
 }

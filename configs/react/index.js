@@ -1,7 +1,7 @@
 require("@rushstack/eslint-patch/modern-module-resolution")
 
 module.exports = {
-    extends: ["../"],
+    extends: ["../", "plugin:@typescript-eslint/recommended"],
     overrides: [
         {
             files: ["**/*.tsx"],

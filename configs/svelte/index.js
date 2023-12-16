@@ -1,7 +1,7 @@
 require("@rushstack/eslint-patch/modern-module-resolution")
 
 module.exports = {
-    extends: ["../", "plugin:@typescript-eslint/recommended"],
+    extends: ["plugin:@typescript-eslint/recommended", "../"],
     plugins: ["svelte3", "@typescript-eslint"],
     overrides: [
         {

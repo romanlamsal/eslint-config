@@ -1,13 +1,21 @@
 # lamsal-node-defaults
 
-## Install
+Install this package, then create a prettier and a eslint config. There are eslint configs for available for 
+svelte, vue and react as-well as a prettier config. Those are referencable as relative exports, i.e.:
+- @lamsal-de/eslint-config/svelte
+- @lamsal-de/eslint-config/vue
+- @lamsal-de/eslint-config/react
+- @lamsal-de/eslint-config/prettier
 
-Install `@rushstack/eslint-patch`, then copy this to your `.eslintrc.cjs` file.
+## Recommended setup
 
-```js
-require("@rushstack/eslint-patch/modern-module-resolution")
+Copy & paste the following code to your `package.json`. Replace `svelte` with your framework of choice:
 
-module.exports = {
-    extends: "@lamsal-de"
+```json
+{
+  "prettier": "@lamsal-de/eslint-config/prettier",
+  "eslintConfig": {
+    "extends": ["@lamsal-de/eslint-config/svelte"]
+  }
 }
 ```

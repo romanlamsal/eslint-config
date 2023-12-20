@@ -5,6 +5,7 @@
     ".": "./configs/index.js",
     "./prettier": "./configs/prettierrc.js",
     "./svelte": "./configs/svelte/index.js",
+    "./vue": "./configs/vue/index.js",
     "./react": "./configs/react/index.js"
   },
   "repository": "git@github.com:romanlamsal/eslint-config.git",
@@ -32,7 +33,9 @@
     "svelte": "^4.0.5"
   },
   "optionalDependencies": {
-    "svelte": "*"
+    "react": "*",
+    "svelte": "*",
+    "vue": "*"
   },
   "prettier": "./configs/prettierrc.js",
   "eslintConfig": {

@@ -1,1 +1,3 @@
-export const name = "" satisfies string
+export type ArbitraryType = string
+
+export const arbitraryConst = "" satisfies string

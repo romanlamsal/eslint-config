@@ -3,7 +3,10 @@
 </template>
 
 <script setup lang="ts">
-const foo = ""
+import type { ArbitraryType } from "./foo"
+import { arbitraryConst } from "./foo"
+
+const foo = arbitraryConst satisfies ArbitraryType
 </script>
 
 <style scoped lang="scss"></style>

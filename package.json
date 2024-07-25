@@ -1,6 +1,7 @@
 {
   "name": "@lamsal-de/eslint-config",
   "version": "2.0.0",
+  "bin": "./cli.mjs",
   "exports": {
     ".": "./configs/index.js",
     "./prettier": "./configs/prettierrc.js",
@@ -12,25 +13,30 @@
   "author": "Roman Lamsal <roman@lamsal.de>",
   "license": "MIT",
   "dependencies": {
-    "@rushstack/eslint-patch": "^1.3.2",
-    "@typescript-eslint/eslint-plugin": "^5.55.0",
-    "@typescript-eslint/parser": "^5.55.0",
-    "@vue/eslint-config-typescript": "^11.0.2",
-    "eslint": "8.22.0",
-    "eslint-config-prettier": "^8.7.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.8",
+    "@rushstack/eslint-patch": "^1.10.3",
+    "@types/node": "^18.19.42",
+    "@typescript-eslint/eslint-plugin": "^7.17.0",
+    "@typescript-eslint/parser": "^7.17.0",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-svelte3": "^4.0.0",
-    "eslint-plugin-unused-imports": "^2.0.0",
-    "eslint-plugin-vue": "^9.5.1",
-    "prettier": "^2.8.8",
-    "prettier-plugin-svelte": "^2.10.0",
-    "prettier-plugin-tailwindcss": "^0.2.5"
+    "eslint-plugin-unused-imports": "^4.0.1",
+    "eslint-plugin-vue": "^9.27.0",
+    "prettier-plugin-svelte": "^3.2.6",
+    "prettier-plugin-tailwindcss": "^0.6.5"
   },
   "devDependencies": {
-    "typescript": "^4.9.0",
-    "svelte": "^4.0.5"
+    "eslint": "8.57.0",
+    "prettier": "^3.3.3",
+    "svelte": "^4.0.5",
+    "typescript": "^4.9.0"
+  },
+  "peerDependencies": {
+    "eslint": "8.57.0",
+    "prettier": "^3.3.3"
   },
   "optionalDependencies": {
     "react": "*",
@@ -39,6 +45,8 @@
   },
   "prettier": "./configs/prettierrc.js",
   "eslintConfig": {
-    "extends": ["./configs/svelte"]
+    "extends": [
+      "@lamsal-de"
+    ]
   }
 }

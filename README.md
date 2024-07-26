@@ -11,13 +11,27 @@ svelte, vue and react as-well as a prettier config. Those are referencable as re
 
 ### CLI
 
-Run `npx @lamsal-de/eslint-config init (ts|react|vue|svelte)`. Or, manually add the following to your `package.json` file/configuration files:
+Run `npx @lamsal-de/eslint-config init (ts|react|vue|svelte)`. If you try to install at a workspace root, you can try
+```shell
+npm_config_ignore_workspace_root_check=true pnpx @lamsal-de/eslint-config@latest init
+```
+
+### Manually
+
+add the following to your `package.json` file/configuration files:
 
 ```json
 {
+  "devDependencies": {
+    "prettier": "...",
+    "eslint": "...",
+    "@lamsal-de/eslint-config": "..."
+  },
   "prettier": "@lamsal-de/eslint-config/prettier",
   "eslintConfig": {
-    "extends": ["@lamsal-de/eslint-config/svelte"]
+    "extends": [
+      "@lamsal-de/eslint-config/svelte"
+    ]
   }
 }
 ```

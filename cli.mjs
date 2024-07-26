@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { execSync } from "node:child_process"
 import { existsSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
@@ -62,6 +64,9 @@ if (cwdPackageJson.type === "module") {
 
 const prettierConfig = "@lamsal-de/eslint-config/prettier"
 
-writeFileSync(cwdPackageJsonPath, JSON.stringify({ ...cwdPackageJson, eslintConfig, prettier: prettierConfig }, null, 2))
+writeFileSync(
+    cwdPackageJsonPath,
+    JSON.stringify({ ...cwdPackageJson, eslintConfig, prettier: prettierConfig }, null, 2),
+)
 
 console.log("Done!")

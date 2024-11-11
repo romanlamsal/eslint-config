@@ -1,13 +1,14 @@
 {
   "name": "@lamsal-de/eslint-config",
-  "version": "2.0.0",
+  "version": "2.1.1",
   "bin": "./cli.mjs",
   "exports": {
     ".": "./configs/index.js",
     "./prettier": "./configs/prettierrc.js",
     "./svelte": "./configs/svelte/index.js",
     "./vue": "./configs/vue/index.js",
-    "./react": "./configs/react/index.js"
+    "./react": "./configs/react/index.js",
+    "./biome": "./configs/biome.json"
   },
   "repository": "git@github.com:romanlamsal/eslint-config.git",
   "author": "Roman Lamsal <roman@lamsal.de>",
@@ -29,12 +30,14 @@
     "prettier-plugin-tailwindcss": "^0.6.5"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "eslint": "8.57.0",
     "prettier": "^3.3.3",
     "svelte": "^4.0.5",
     "typescript": "^4.9.0"
   },
   "peerDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "eslint": "8.57.0",
     "prettier": "^3.3.3"
   },

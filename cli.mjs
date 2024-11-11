@@ -13,17 +13,71 @@ if (command !== "init") {
     process.exit(1)
 }
 
-let packageManager = "npm"
-if (existsSync("pnpm-lock.yaml")) {
-    packageManager = "pnpm"
-} else if (existsSync("yarn.lock")) {
-    packageManager = "yarn"
-}
+const packageManager = (function () {
+    const userAgentPackageManager = (process.env.npm_config_user_agent || "").split("/")[0]
 
-console.log("Installing package and eslint/prettier, if missing.")
+    if (["npm", "pnpm", "yarn"].includes(userAgentPackageManager)) {
+        return userAgentPackageManager
+    }
+
+    if (existsSync("pnpm-lock.yaml")) {
+        return "pnpm"
+    } else if (existsSync("yarn.lock")) {
+        return "yarn"
+    }
+
+    return "npm"
+})()
 
 const cwdPackageJsonPath = join(process.cwd(), "package.json")
 let cwdPackageJson = JSON.parse(readFileSync(cwdPackageJsonPath, { encoding: "utf-8" }))
+
+if (!type || type === "biome") {
+    const biomeVersion = { ...cwdPackageJson.devDependencies, ...cwdPackageJson.dependencies }[
+        "@biomejs/biome"
+    ]
+
+    const missingDeps = [`${packageJson.name}@^${packageJson.version}`]
+    if (!biomeVersion) {
+        console.log("Installing biome.")
+        missingDeps.push("@biomejs/biome@" + packageJson.peerDependencies["@biomejs/biome"])
+    }
+
+    execSync(`${packageManager} install -D ${missingDeps.join(" ")}`, { stdio: "inherit" })
+
+    const biomeConfigOptions = ["biome.json", "biome.jsonc"].map(c => join(process.cwd(), c))
+    const biomeConfigFile = biomeConfigOptions.find(p => existsSync(p))
+
+    const packageBiomeExport = join(packageJson.name, "biome")
+
+    if (!biomeConfigFile) {
+        writeFileSync(
+            biomeConfigOptions[0],
+            JSON.stringify(
+                {
+                    $schema: "https://biomejs.dev/schemas/1.9.4/schema.json",
+                    extends: [packageBiomeExport],
+                },
+                null,
+                2,
+            ),
+        )
+    } else {
+        const biomeConfig = JSON.parse(readFileSync(biomeConfigFile, { encoding: "utf-8" }))
+
+        if ((!"extends") in biomeConfig) {
+            biomeConfig.extends = []
+        }
+
+        if (!biomeConfig.extends.includes(packageBiomeExport)) {
+            biomeConfig.extends.push(packageBiomeExport)
+        }
+
+        writeFileSync(biomeConfigFile, JSON.stringify(biomeConfig, null, 2))
+    }
+
+    process.exit(0)
+}
 
 const hasPrettier = "prettier" in (cwdPackageJson.devDependencies || {})
 const hasEslint = "eslint" in (cwdPackageJson.devDependencies || {})
@@ -33,6 +87,8 @@ const missingDeps = [
     !hasPrettier && "prettier",
     !hasEslint && `eslint@^${packageJson.peerDependencies.eslint}`,
 ].filter(Boolean)
+
+console.log("Installing package and eslint/prettier, if missing.")
 
 execSync(`${packageManager} install -D ${missingDeps.join(" ")}`, { stdio: "inherit" })
 

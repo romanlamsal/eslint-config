@@ -58,7 +58,10 @@
         "noNamespace": "error",
         "noNonNullAssertion": "off",
         "useAsConstAssertion": "error",
-        "useBlockStatements": "error",
+        "useBlockStatements": {
+          "level": "error",
+          "fix": "safe"
+        },
         "useImportType": "error"
       },
       "suspicious": {

@@ -3,7 +3,7 @@
 import { execSync } from "node:child_process"
 import { existsSync, writeFileSync } from "node:fs"
 import { join } from "node:path"
-import packageJson from "./package.json" assert { type: "json" }
+import packageJson from "./package.json" with { type: "json" }
 import { readFileSync } from "fs"
 
 const [command, type] = process.argv.slice(2)
